@@ -1,0 +1,15 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ocr-service-configmap
+  namespace: sys-nm
+data:
+  spring.profiles.active: dev
+  spring.datasource.url: jdbc:postgresql://45.77.137.131:5432/db_invoicing
+  spring.datasource.username: users_invoicing
+  spring.datasource.password: InvoiCIngDev#Ps@2021
+  drive.url: https://drive.arya.digital/
+  predict.url: http://136.244.82.239:8999/
+  training.url: http://95.179.159.26:8000/
+  predict.method: async_predict
+  

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OcrApplication<ocr-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ocr.OcrApplication",
+            "projectName": "ocr-service",
+            "args": ""
+        }
+    ]
+}

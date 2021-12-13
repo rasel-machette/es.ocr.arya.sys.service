@@ -1,0 +1,38 @@
+# ... Deployment YAML definition
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-service
+  namespace: sys-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ocr-service
+  template:
+    metadata:
+      labels:
+        app: ocr-service
+    spec:
+      containers:
+        - name: ocr-service
+          image: aryadigital/ocr-service:1.0.1
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: ocr-service-configmap
+
+---
+# ... Service YAML definition
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocr-service
+  namespace: sys-nm
+spec:
+  selector:
+    app: ocr-service
+  ports:
+    - port: 8097
+      targetPort: 8080
